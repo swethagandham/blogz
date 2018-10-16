@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <body>
+ <h1>Build a Blog</h1>
+    <form action="/validate" method="post">
+        <table>
+            <tr>
+                <td><label for="blogtitle">Title for new blog:</label></td>
+                <td>
+                    <input name="blogtitle" type="text" value="{{blogtitle}}">
+                    <span class="error">{{blogtitleerror}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="blogentry">Your new blog:</label></td>
+                <td>       
+                    <textarea name="blogentry" value="{{blogentry}}"></textarea>
+                    <span class="error">{{blogentryerror}}</span>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value='Add entry'>
+       
+    </form>
+    
+    {% if tasks|length == 0 %}
+    <p>No tasks yet</p>
+    {% else %}
+            {% for task in tasks %}
+                <a href="{{task.title}}">{{task.title}}</a><br>
+                {{task.entry}}<br>
+            {% endfor %}
+    {% endif %}
+    </body>
+</html>
+
