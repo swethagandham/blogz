@@ -20,7 +20,6 @@ class Task(db.Model):
 tasks = []
 
 @app.route('/validate', methods=['POST','GET'])
-
 def validate_inputs():
     if request.method == 'POST':
         blogtitle = request.form['blogtitle']

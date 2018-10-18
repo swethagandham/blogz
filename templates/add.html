@@ -26,9 +26,9 @@
     {% if tasks|length == 0 %}
     <p>No tasks yet</p>
     {% else %}
-            {% for task in tasks %}
-                <a href="{{task.title}}">{{task.title}}</a><br>
-                {{task.entry}}<br>
+            {% for blog in tasks %}
+                <a href="{{blog.title}}">{{blog.title}}</a><br>
+                {{blog.entry}}<br>
             {% endfor %}
     {% endif %}
     </body>
