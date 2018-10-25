@@ -1,12 +1,9 @@
 {% extends "base.html" %}
-
-{% block content %}
-    <a href="/">Main Blog Page</a><br><br>
-    <a href="/add">Add Blog entry</a>
-    <h1 align = "center">Build a Blog</h1>
+{% block content %} 
+    <h1 align = "center">Blog posts!</h1>
     {% for blog in tasks %}
         <a href="/blog?id={{blog.id}}">{{blog.title}}</a><br>
         {{blog.entry}}<br>
+        written by <a href="/blogz?userid={{blog.owner_id}}">{{blog.owner.username}}</a><br>
     {% endfor %}
-
 {% endblock %}

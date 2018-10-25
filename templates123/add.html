@@ -1,5 +1,13 @@
 <!DOCTYPE html>
+
 <html>
+    <head>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
     <body>
  <h1>Build a Blog</h1>
     <form action="/validate" method="post">
@@ -22,15 +30,20 @@
         <input type="submit" value='Add entry'>
        
     </form>
-    
+
     {% if tasks|length == 0 %}
-    <p>No tasks yet</p>
+    <p>No blogs yet</p>
     {% else %}
             {% for blog in tasks %}
                 <a href="{{blog.title}}">{{blog.title}}</a><br>
                 {{blog.entry}}<br>
             {% endfor %}
     {% endif %}
+
     </body>
-</html>
+
+</html>    
+
+
+
 

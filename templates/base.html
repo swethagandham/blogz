@@ -1,11 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <title>{{title}}</title>
+        <style>
+            .error 
+            {color: red;}
+            
+            a{display:inline-block;
+            margin:0px;
+            padding:10px;}
+        </style>
     </head>
-    <body>
-        {% block content %}
-        {% endblock %}
-           
-     </body>
- </html> 
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/blog">All Posts</a>
+        <a href="/newpost">New Post</a>
+        <a href="/login">Login</a>
+        
+        <a href="/logout">Logout</a>
+    </nav>
+
+
+
+    {% with messages = get_flashed_messages(with_categories=True) %} 
+        <ul>
+            {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+        </ul>
+
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
